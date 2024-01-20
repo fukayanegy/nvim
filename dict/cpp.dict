@@ -1,0 +1,26 @@
+cout <<
+cin >>
+int
+string
+double
+char
+vector
+vector<int>
+vector<vector<>>
+abs
+sin
+cos
+tan
+size()
+substr
+begin
+end
+substr
+min
+max
+swap
+rand
+reverse
+sort
+push_back
+pop_back
