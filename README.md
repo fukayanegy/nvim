@@ -1,4 +1,6 @@
 # init.vimに関する説明
+まず、このrepositoryは'~/.config'配下にcloneします.
+
 ## BASE SETTING
 1. belloff
 
