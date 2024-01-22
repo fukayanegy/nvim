@@ -134,7 +134,7 @@ Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 
 " Unmanaged plugin (manually installed and updated)
-Plug '~/my-prototype-plugin'
+" Plug '~/my-prototype-plugin'
 
 " under info system
 Plug 'vim-airline/vim-airline'
@@ -147,6 +147,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'preservim/nerdtree'
 
 " terminal system
+Plug 'akinsho/toggleterm.nvim'
+
+" indent system
 Plug 'lukas-reineke/indent-blankline.nvim'
 
 Plug 'nvim-treesitter/nvim-treesitter'
@@ -338,9 +341,31 @@ let g:AutoPairsShortcutBackInsert = '<M-b>'
 
 " ============================================================================
 
+" ---------------------------------TOGGLETERM---------------------------------
+
+" ============================================================================
+
+lua << EOF
+function ToggleTerm()
+    require("toggleterm").setup()
+end
+EOF
+
+call v:lua.ToggleTerm()
+
+
+" ============================================================================
+
 " ------------------------------INDENT-BLANKLINE------------------------------
 
 " ============================================================================
 
+lua << EOF
+function IndentBlankLine()
+    require("ibl").setup()
+end
+EOF
+
+call v:lua.IndentBlankLine()
 
 
