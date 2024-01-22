@@ -78,7 +78,12 @@ Plug 'lukas-reineke/indent-blankline.nvim'  -- indentを可視化するための
 Plug 'nvim-treesitter/nvim-treesitter'      -- 
 Plug 'preservim/nerdcommenter'              -- コメントアウトを自動化する
 Plug 'jiangmiao/auto-pairs'                 -- (), "" などをペアで書く
-Plug 'nathanaelkane/vim-indent-guides'      --
+Plug 'nathanaelkane/vim-indent-guides'      -- indentを可視化するためのプラグイン
+Plug 'TheGLander/indent-rainbowline.nvim'   -- indentを可視化するためのプラグイン
+
+Plug 'lewis6991/gitsigns.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'romgrk/barbar.nvim'
 
 vim.call('plug#end')
 
@@ -126,30 +131,19 @@ vim.g.AutoPairsShortcutBackInsert = '<M-b>'
 
 
 --------------------------------TOGGLETERM--------------------------------
-require("toggleterm").setup()
+require("toggleterm").setup{
+    size = 80,
+    direction = 'tab',
+    name = 'terminal',
+}
+-- vertical/float
 vim.api.nvim_set_keymap('n', 'TT', ':ToggleTerm<CR>', { noremap = true, silent = true })
 
 
 -----------------------------INDENT-BLANKLINE-----------------------------
-local highlight = {
-    "CursorColumn",
-    "Blackspace",
-}
-
-require("ibl").setup {
-    indent = {
-        char = "→"
-    },
-    -- whitespace = {
-    --     highlight = highlight,
-    --     remove_blankline_trail = false,
-    -- },
-    -- space_char_blankline = "·",
-    scope = {
-        enabled = false
-    },
-}
+require("ibl").setup()
 
 
-
-
+----------------------------------BARBAR----------------------------------
+local map = vim.api.nvim_set_keymap
+local opts = { noremap = true, silent = true }
