@@ -7,13 +7,14 @@
 -------------------------------BASE SETTING-------------------------------
 vim.cmd("set belloff=all")              --
 vim.cmd("set noswapfile")               --
-vim.cmd("set mouse=a")                   --
+vim.cmd("set mouse=a")                  --
 vim.cmd("set clipboard=unnamedplus")    --
 vim.cmd("set ignorecase")               --
 vim.cmd("set smartcase")                --
 vim.cmd("set wrapscan")                 --
 vim.cmd("set incsearch")                --
 vim.cmd("set inccommand=split")         --
+vim.cmd("set showtabline=0")
 vim.cmd("syntax on")                    --
 vim.cmd("filetype on")                  --
 
@@ -88,6 +89,25 @@ Plug 'nvim-tree/nvim-tree.lua'
 
 vim.call('plug#end')
 
+
+
+---------------------------------AIR LINE---------------------------------
+vim.g.airline_theme = 'wombat'
+vim.g.airline_extensions_tabline_enabled = 1
+vim.g.airline_powerline_fonts = 1
+vim.o.laststatus = 0
+
+vim.api.nvim_set_keymap('n', '<C-s>', [[:lua ToggleLastStatus()<CR>]], { noremap = true, silent = true })
+
+function ToggleLastStatus()
+    if vim.o.laststatus == 0 then
+        vim.o.laststatus = 2
+    elseif vim.o.laststatus == 2 then
+        vim.o.laststatus = 0
+    end
+end
+
+
 --------------------------------ULTI SNIPS--------------------------------
 vim.g.UltiSnipsExpandTrigger = "<tab>"
 vim.g.UltiSnipsJumpForwardTrigger = "<c-b>"
@@ -98,7 +118,6 @@ vim.g.UltiSnipsEditSplit = "vertical"
 ---------------------------------NVIMTREE---------------------------------
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
-
 vim.opt.termguicolors = true
 
 require("nvim-tree").setup()
@@ -123,7 +142,7 @@ vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeToggle<CR>', { noremap = true, s
 
 --------------------------------EASYMOTION--------------------------------
 vim.g.EasyMotion_do_mapping = 0
-vim.api.nvim_set_keymap('n', '<Leader>s', '<Plug>(easymotion-overwin-f2)', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-i>', '<Plug>(easymotion-overwin-f2)', { noremap = true, silent = true })
 vim.g.EasyMotion_smartcase = 1
 vim.api.nvim_set_keymap('n', '<Leader>j', '<Plug>(easymotion-j)', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<Leader>k', '<Plug>(easymotion-k)', { noremap = true, silent = true })
@@ -173,4 +192,3 @@ vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
-
