@@ -72,7 +72,7 @@ Plug 'junegunn/fzf'                         --
 Plug 'vim-airline/vim-airline'              -- vimの下にある部分を豪華にする
 Plug 'vim-airline/vim-airline-themes'       -- vim-airlineの色を変える
 Plug 'easymotion/vim-easymotion'            -- 移動するためのプラグイン
-Plug 'preservim/nerdtree'                   -- tree
+-- Plug 'preservim/nerdtree'                   -- tree
 Plug 'akinsho/toggleterm.nvim'              -- terminalを豪華にするためのプラグイン
 Plug 'lukas-reineke/indent-blankline.nvim'  -- indentを可視化するためのプラグイン
 Plug 'nvim-treesitter/nvim-treesitter'      -- 
@@ -81,7 +81,9 @@ Plug 'jiangmiao/auto-pairs'                 -- (), "" などをペアで書く
 Plug 'nathanaelkane/vim-indent-guides'      -- indentを可視化するためのプラグイン
 Plug 'TheGLander/indent-rainbowline.nvim'   -- indentを可視化するためのプラグイン
 Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope.nvim'        -- fileの検索
+-- Plug 'Shougo/defx.nvim'
+Plug 'nvim-tree/nvim-tree.lua'
 -- Plug 'nvim-telescope/telescope.nvim' , { 'tab': '0.1.5' }
 
 vim.call('plug#end')
@@ -93,8 +95,30 @@ vim.g.UltiSnipsJumpBackwardTrigger = "<c-z>"
 vim.g.UltiSnipsEditSplit = "vertical"
 
 
----------------------------------NERDTREE---------------------------------
-vim.api.nvim_set_keymap('n', 'tt', ':NERDTreeToggle<CR>', { noremap = true, silent = true })
+---------------------------------NVIMTREE---------------------------------
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+
+vim.opt.termguicolors = true
+
+require("nvim-tree").setup()
+
+require("nvim-tree").setup({
+    sort = {
+        sorter = "case_sensitive",
+    },
+    view = {
+        width = 30,
+    },
+    renderer = {
+        group_empty = true,
+    },
+    filters = {
+        dotfiles = true,
+    },
+})
+
+vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
 
 --------------------------------EASYMOTION--------------------------------
