@@ -21,3 +21,12 @@ mkdir site/autoload
 
 ### PLUGIN MANAGER COMMANDS
 
+### NERD TREE COMMANDS
+#### ファイルに関するコマンド
+`o`  : ファイルを開く
+`t`  : 別タブで開く
+`T`  : 別タブ・バックグラウンドで開く
+`i`  : 画面分割して開く(上下)
+`gi` : 画面分割して開く(上下)カーソルはtreeのまま
+`s`  : 画面分割して開く(左右)
+`si` : 画面分割して開く(左右)カーソルはtreeのまま

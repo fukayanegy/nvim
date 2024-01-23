@@ -7,7 +7,7 @@
 -------------------------------BASE SETTING-------------------------------
 vim.cmd("set belloff=all")              --
 vim.cmd("set noswapfile")               --
-vim.cmd("set mouse=")                   --
+vim.cmd("set mouse=a")                   --
 vim.cmd("set clipboard=unnamedplus")    --
 vim.cmd("set ignorecase")               --
 vim.cmd("set smartcase")                --
@@ -80,13 +80,11 @@ Plug 'preservim/nerdcommenter'              -- コメントアウトを自動化
 Plug 'jiangmiao/auto-pairs'                 -- (), "" などをペアで書く
 Plug 'nathanaelkane/vim-indent-guides'      -- indentを可視化するためのプラグイン
 Plug 'TheGLander/indent-rainbowline.nvim'   -- indentを可視化するためのプラグイン
-
-Plug 'lewis6991/gitsigns.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'romgrk/barbar.nvim'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+-- Plug 'nvim-telescope/telescope.nvim' , { 'tab': '0.1.5' }
 
 vim.call('plug#end')
-
 
 --------------------------------ULTI SNIPS--------------------------------
 vim.g.UltiSnipsExpandTrigger = "<tab>"
@@ -133,17 +131,22 @@ vim.g.AutoPairsShortcutBackInsert = '<M-b>'
 --------------------------------TOGGLETERM--------------------------------
 require("toggleterm").setup{
     size = 80,
-    direction = 'tab',
+    direction = 'float',
     name = 'terminal',
 }
 -- vertical/float
-vim.api.nvim_set_keymap('n', 'TT', ':ToggleTerm<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-j>', ':ToggleTerm<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('t', '<C-j>', '<C-\\><C-n>:ToggleTerm<CR>', { noremap = true, silent = true })
 
 
 -----------------------------INDENT-BLANKLINE-----------------------------
 require("ibl").setup()
 
 
-----------------------------------BARBAR----------------------------------
-local map = vim.api.nvim_set_keymap
-local opts = { noremap = true, silent = true }
+--------------------------------TELESCOPE--------------------------------
+local builtin = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
+vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
