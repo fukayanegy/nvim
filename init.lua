@@ -17,7 +17,7 @@ vim.cmd("set inccommand=split")         --
 vim.cmd("set showtabline=0")
 vim.cmd("syntax on")                    --
 vim.cmd("filetype on")                  --
-
+-- vim.cmd("set list listchars=tab:»-,trail:=,extends:»,precedes:«,nbsp:%,space:·")
 
 ------------------------------INDENT SETTING------------------------------
 vim.cmd("set autoindent")               --
@@ -120,14 +120,12 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
-require("nvim-tree").setup()
-
 require("nvim-tree").setup({
     sort = {
         sorter = "case_sensitive",
     },
     view = {
-        width = 30,
+        width = 20,
     },
     renderer = {
         group_empty = true,
