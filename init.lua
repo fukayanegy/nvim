@@ -125,10 +125,26 @@ require("nvim-tree").setup({
         sorter = "case_sensitive",
     },
     view = {
-        width = 20,
+        width = '13%',
+        side = 'left',
+        signcolumn = 'no',
     },
     renderer = {
+        highlight_git = true,
         group_empty = true,
+        icons = {
+            glyphs = {
+                git = {
+                    unstaged = '!',
+                    renamed = '»',
+                    untracked = '?',
+                    deleted = '✘',
+                    staged = '✓',
+                    unmerged = '',
+                    ignored = '◌',
+                },
+            },
+        },
     },
     filters = {
         dotfiles = true,
