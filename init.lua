@@ -19,6 +19,7 @@ vim.cmd("syntax on")                    --
 vim.cmd("filetype on")                  --
 vim.cmd("set list listchars=tab:»-,trail:=")
 -- vim.cmd("set list listchars=tab:»-,trail:=,extends:»,precedes:«,nbsp:%,space:·")
+vim.cmd("set colorcolumn=80")
 
 ------------------------------INDENT SETTING------------------------------
 vim.cmd("set autoindent")               --
@@ -33,6 +34,7 @@ vim.cmd("set softtabstop=0")            --
 vim.cmd("filetype plugin on")           --
 vim.cmd("filetype indent on")           --
 vim.cmd("autocmd FileType c           setlocal sw=4 sts=4 ts=4 noet")
+vim.cmd("autocmd FileType cpp         setlocal sw=4 sts=4 ts=4 noet")
 vim.cmd("autocmd FileType html        setlocal sw=4 sts=4 ts=4 et")
 vim.cmd("autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et")
 vim.cmd("autocmd FileType js          setlocal sw=4 sts=4 ts=4 et")
@@ -149,7 +151,7 @@ vim.g.NERDSpaceDelims = 1
 vim.g.NERDCompactSexyComs = 1
 vim.g.NERDDefaultAlign = 'left'
 vim.g.NERDAltDelims_java = 1
-vim.g.NERDCustomDelimiters = { c = { left = '// ' } }
+vim.g.NERDCustomDelimiters = { c = { left = '//' } }
 vim.g.NERDCommentEmptyLines = 1
 vim.g.NERDTrimTrailingWhitespace = 1
 vim.g.NERDToggleCheckAllLines = 1
@@ -185,6 +187,7 @@ header.setup({
   -- asciiart = { "......", "......",} -- headers with different ascii arts are incompatible with each other
 })
 
+--------------------------------42-HEADER--------------------------------
 vim.g.user = "etakaham"
 vim.g.mail = "etakaham@student.42tokyo.jp"
 
