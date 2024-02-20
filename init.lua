@@ -59,150 +59,19 @@ vim.api.nvim_set_var('mapleader', ' ')
 ************************************************************************]]
 
 ------------------------------PLUGIN MANAGER------------------------------
-local Plug=vim.fn['plug#']
-vim.call('plug#begin')
-
-Plug 'junegunn/vim-github-dashboard'        -- vim上でgithubの履歴を確認する.
-Plug 'SirVer/ultisnips'                     -- snippet
-Plug 'honza/vim-snippets'                   --
-Plug 'tpope/vim-fireplace'                  --
-Plug 'rdnetto/YCM-Generator'                --
-Plug 'fatih/vim-go'                         --
-Plug 'nsf/gocode'                           --
-Plug 'junegunn/fzf'                         --
-Plug 'vim-airline/vim-airline'              -- vimの下にある部分を豪華にする
-Plug 'vim-airline/vim-airline-themes'       -- vim-airlineの色を変える
-Plug 'easymotion/vim-easymotion'            -- 移動するためのプラグイン
--- Plug 'preservim/nerdtree'                   -- tree
-Plug 'akinsho/toggleterm.nvim'              -- terminalを豪華にするためのプラグイン
-Plug 'lukas-reineke/indent-blankline.nvim'  -- indentを可視化するためのプラグイン
-Plug 'nvim-treesitter/nvim-treesitter'      -- 
-Plug 'preservim/nerdcommenter'              -- コメントアウトを自動化する
-Plug 'jiangmiao/auto-pairs'                 -- (), "" などをペアで書く
-Plug 'nathanaelkane/vim-indent-guides'      -- indentを可視化するためのプラグイン
-Plug 'TheGLander/indent-rainbowline.nvim'   -- indentを可視化するためのプラグイン
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'        -- fileの検索
--- Plug 'Shougo/defx.nvim'
-Plug 'nvim-tree/nvim-tree.lua'
--- Plug 'nvim-telescope/telescope.nvim' , { 'tab': '0.1.5' }
-
-vim.call('plug#end')
-
-
-
----------------------------------AIR LINE---------------------------------
-vim.g.airline_theme = 'wombat'
-vim.g.airline_extensions_tabline_enabled = 1
-vim.g.airline_powerline_fonts = 1
-vim.o.laststatus = 0
-
-vim.api.nvim_set_keymap('n', '<C-s>', [[:lua ToggleLastStatus()<CR>]], { noremap = true, silent = true })
-
-function ToggleLastStatus()
-    if vim.o.laststatus == 0 then
-        vim.o.laststatus = 2
-    elseif vim.o.laststatus == 2 then
-        vim.o.laststatus = 0
-    end
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
 end
+vim.opt.rtp:prepend(lazypath)
 
+plugins = require('plugins')
 
---------------------------------ULTI SNIPS--------------------------------
-vim.g.UltiSnipsExpandTrigger = "<tab>"
-vim.g.UltiSnipsJumpForwardTrigger = "<c-b>"
-vim.g.UltiSnipsJumpBackwardTrigger = "<c-z>"
-vim.g.UltiSnipsEditSplit = "vertical"
-
-
----------------------------------NVIMTREE---------------------------------
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
-vim.opt.termguicolors = true
-
-require("nvim-tree").setup({
-    sort = {
-        sorter = "case_sensitive",
-    },
-    view = {
-        width = '13%',
-        side = 'left',
-        signcolumn = 'no',
-    },
-    renderer = {
-        highlight_git = true,
-        group_empty = true,
-        icons = {
-            glyphs = {
-                git = {
-                    unstaged = '!',
-                    renamed = '»',
-                    untracked = '?',
-                    deleted = '✘',
-                    staged = '✓',
-                    unmerged = '',
-                    ignored = '◌',
-                },
-            },
-        },
-    },
-    filters = {
-        dotfiles = true,
-    },
-})
-
-vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
-
-
---------------------------------EASYMOTION--------------------------------
-vim.g.EasyMotion_do_mapping = 0
-vim.api.nvim_set_keymap('n', '<C-i>', '<Plug>(easymotion-overwin-f2)', { noremap = true, silent = true })
-vim.g.EasyMotion_smartcase = 1
-vim.api.nvim_set_keymap('n', '<Leader>j', '<Plug>(easymotion-j)', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<Leader>k', '<Plug>(easymotion-k)', { noremap = true, silent = true })
-
-
-------------------------------NERD COMMENTER------------------------------
---                    ======= USING DOCUMENT =======
--- <leader>c<space>  : コメントの状態を切り替える.
--- <leader>ci<space> : 選択した行のコメントの状態を個別に切り替える.
--- <leader>cA        : 行末にコメントを追加する.
--- <leader>cs        : ブロックコメントをする.
-
-vim.g.NERDCreateDefaultMappings = 1
-vim.g.NERDSpaceDelims = 1
-vim.g.NERDCompactSexyComs = 1
-vim.g.NERDDefaultAlign = 'left'
-vim.g.NERDAltDelims_java = 1
-vim.g.NERDCustomDelimiters = { c = { left = '// ' } }
-vim.g.NERDCommentEmptyLines = 1
-vim.g.NERDTrimTrailingWhitespace = 1
-vim.g.NERDToggleCheckAllLines = 1
-
-
---------------------------------AUTO PAIRS--------------------------------
-vim.g.AutoPairsFlyMode = 0
-vim.g.AutoPairsShortcutBackInsert = '<M-b>'
-
-
---------------------------------TOGGLETERM--------------------------------
-require("toggleterm").setup{
-    size = 80,
-    direction = 'float',
-    name = 'terminal',
-}
--- vertical/float
-vim.api.nvim_set_keymap('n', '<C-j>', ':ToggleTerm<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('t', '<C-j>', '<C-\\><C-n>:ToggleTerm<CR>', { noremap = true, silent = true })
-
-
------------------------------INDENT-BLANKLINE-----------------------------
-require("ibl").setup()
-
-
---------------------------------TELESCOPE--------------------------------
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+require('lazy').setup(plugins)
