@@ -23,6 +23,13 @@ require('lazy').setup({
     'jiangmiao/auto-pairs',
     'preservim/nerdcommenter',
     'TheGLander/indent-rainbowline.nvim',
+    'nvim-lua/plenary.nvim',
+    {
+        "nvim-telescope/telescope-frecency.nvim",
+        config = function()
+            require("telescope").load_extension "frecency"
+        end,
+    },
 })
 
 end
