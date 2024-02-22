@@ -25,7 +25,8 @@ require('lazy').setup({
     'preservim/nerdcommenter',
     'TheGLander/indent-rainbowline.nvim',
     'nvim-lua/plenary.nvim',
-    'ryanoasis/vim-devicons',
+    --'ryanoasis/vim-devicons',
+    'nvim-tree/nvim-web-devicons',
     {
         "nvim-telescope/telescope-frecency.nvim",
         config = function()
