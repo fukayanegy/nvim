@@ -2,6 +2,7 @@ local M = {}
 
 function M.setup()
     -------------------------------BASE SETTING-------------------------------
+    vim.cmd("set encoding=UTF-8")
     vim.cmd("set belloff=all")              --
     vim.cmd("set noswapfile")               --
     vim.cmd("set mouse=a")                  --
@@ -39,6 +40,8 @@ function M.setup()
     vim.cmd("autocmd FileType javascript  setlocal sw=4 sts=4 ts=4 et")
     vim.cmd("autocmd FileType make        setlocal sw=4 sts=4 ts=4 noet")
 
+
+   --vim.opt.fillchars = { EndOfBuffer = '' }
 
     -------------------------ORIGINAL COMMAND SETTING-------------------------
     vim.api.nvim_set_keymap('n', 'ZZ', ':w<CR>:e .<CR>', { noremap = true, silent = true })

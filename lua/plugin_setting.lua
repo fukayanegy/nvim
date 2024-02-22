@@ -58,11 +58,23 @@ require("nvim-tree").setup({
 })
 vim.api.nvim_set_keymap('n', '<C-f>', ':NvimTreeToggle<CR>', { noremap = true, silent = true })
 
+
+--------------------------------TOGGLETERM--------------------------------
+
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
 vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+
+
+--------------------------------EASYMOTION--------------------------------
+vim.g.EasyMotion_do_mapping = 0
+vim.api.nvim_set_keymap('n', '<C-i>', '<Plug>(easymotion-overwin-f2)', { noremap = true, silent = true })
+vim.g.EasyMotion_smartcase = 1
+vim.api.nvim_set_keymap('n', '<Leader>j', '<Plug>(easymotion-j)', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<Leader>k', '<Plug>(easymotion-k)', { noremap = true, silent = true })
+
 
 --------------------------------TOGGLETERM--------------------------------
 require("toggleterm").setup{

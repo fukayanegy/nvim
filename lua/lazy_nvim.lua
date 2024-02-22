@@ -19,11 +19,13 @@ require('lazy').setup({
     'easymotion/vim-easymotion',
     'akinsho/toggleterm.nvim',
     'nvim-telescope/telescope.nvim', tag = '0.1.5',
+    'neoclide/coc.nvim', branch = 'release',
     'nvim-tree/nvim-tree.lua',
     'jiangmiao/auto-pairs',
     'preservim/nerdcommenter',
     'TheGLander/indent-rainbowline.nvim',
     'nvim-lua/plenary.nvim',
+    'ryanoasis/vim-devicons',
     {
         "nvim-telescope/telescope-frecency.nvim",
         config = function()
