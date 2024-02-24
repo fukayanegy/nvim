@@ -17,3 +17,7 @@ devicons.setup()
 -- coc setting
 local coc = require('coc_setting')
 coc.setup()
+
+-- color setting
+local color = require('color')
+color.setup()

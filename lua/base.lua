@@ -15,7 +15,8 @@ function M.setup()
     vim.cmd("set showtabline=0")
     vim.cmd("syntax on")                    --
     vim.cmd("filetype on")                  --
-    -- vim.cmd("set list listchars=tab:»-,trail:=,extends:»,precedes:«,nbsp:%,space:·")
+    vim.cmd("set list listchars=tab:»-")
+    --vim.cmd("set list listchars=tab:»-,trail:=,extends:»,precedes:«,nbsp:%,space:·")
 
     ------------------------------INDENT SETTING------------------------------
     vim.cmd("set autoindent")               --
