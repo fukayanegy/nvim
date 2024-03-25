@@ -181,4 +181,6 @@ require('lazy').setup({
     },
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
     { 'neoclide/coc.nvim', branch = 'release' },
+    { 'mfussenegger/nvim-dap' , version = '*'},
+    {'mfussenegger/nvim-dap-python', version = '*'}
 })
