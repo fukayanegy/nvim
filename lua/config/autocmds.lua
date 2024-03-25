@@ -11,6 +11,7 @@ vim.cmd("set wrapscan")                 --
 vim.cmd("set incsearch")                --
 vim.cmd("set inccommand=split")         --
 vim.cmd("set showtabline=0")
+vim.cmd("set number")
 vim.cmd("syntax on")                    --
 vim.cmd("filetype on")                  --
 vim.cmd("set list listchars=tab:»-")

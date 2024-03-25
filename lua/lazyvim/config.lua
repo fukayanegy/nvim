@@ -180,4 +180,5 @@ require('lazy').setup({
         {'akinsho/toggleterm.nvim', version = "*", config = true},
     },
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
+    { 'neoclide/coc.nvim', branch = 'release' },
 })
