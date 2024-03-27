@@ -85,6 +85,7 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'        -- fileの検索
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'Diogo-ss/42-header.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 
 vim.call('plug#end')
 
@@ -169,7 +170,7 @@ require("toggleterm").setup{
     name = 'terminal',
 }
 -- vertical/float
-vim.api.nvim_set_keymap('n', '<C-j>', ':ToggleTerm<CR>', { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-j>', ':ToggleTerm<CR><C-\\><C-n>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<C-j>', '<C-\\><C-n>:ToggleTerm<CR>', { noremap = true, silent = true })
 
 
@@ -193,7 +194,7 @@ vim.g.mail = "etakaham@student.42tokyo.jp"
 
 --------------------------------TELESCOPE--------------------------------
 local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', builtin.find_files, {})
-vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
+vim.keymap.set('n', '<C-p>', builtin.find_files, {})
+-- vim.keymap.set('n', '<leader>fg', builtin.live_grep, {})
+-- vim.keymap.set('n', '<leader>fb', builtin.buffers, {})
+-- vim.keymap.set('n', '<leader>fh', builtin.help_tags, {})
