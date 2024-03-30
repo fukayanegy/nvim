@@ -180,7 +180,19 @@ require('lazy').setup({
         {'akinsho/toggleterm.nvim', version = "*", config = true},
     },
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-    { 'neoclide/coc.nvim', branch = 'release' },
     { 'mfussenegger/nvim-dap' , version = '*'},
-    {'mfussenegger/nvim-dap-python', version = '*'}
+    {'mfussenegger/nvim-dap-python', version = '*'},
+    {
+        "Diogo-ss/42-header.nvim",
+        lazy = false,
+        config = function()
+            local header = require("42header")
+            header.setup({
+                default_map = true, -- default Mapping <F1> in normal mode
+                auto_update = false,  -- update header when saving
+                user = "etakaham", -- your user
+                mail = "etakaham@student.42tokyo.jp", -- your mail
+            })
+        end
+    },
 })
