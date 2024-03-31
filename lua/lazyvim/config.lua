@@ -22,6 +22,7 @@ require('lazy').setup({
         },
         -- color scheme
         { "EdenEast/nightfox.nvim" },
+        {'shrik3/tokyonight.nvim'},
         -- file explorer
         {
             "nvim-neo-tree/neo-tree.nvim",
