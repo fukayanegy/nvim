@@ -10,3 +10,4 @@ require('plugins.mini')
 require('plugins.noice')
 require('plugins.toggleterm')
 require('plugins.indent')
+vim.o.laststatus = 0

@@ -46,6 +46,10 @@ require('lazy').setup({
                 "<C-g>",
                 function() require("telescope.builtin").grep_string() end,
             },
+            {
+                "<C-b>",
+                function() require("telescope.builtin").buffers() end,
+            },
         },
         opts = {
             defaults = {
@@ -180,7 +184,7 @@ require('lazy').setup({
         {'akinsho/toggleterm.nvim', version = "*", config = true},
     },
     { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} },
-    { 'neoclide/coc.nvim', branch = 'release' },
     { 'mfussenegger/nvim-dap' , version = '*'},
-    {'mfussenegger/nvim-dap-python', version = '*'}
+    { 'mfussenegger/nvim-dap-python', version = '*' },
+    { 'shrik3/tokyonight.nvim' },
 })

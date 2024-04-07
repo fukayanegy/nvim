@@ -22,7 +22,12 @@
                     "hlintOn": true
                 }
             }
-        }
+        },
+        "sql": {
+          "module": "/path/to/node_modules/sql-language-server/dist/bin/cli.js",
+          "args": ["up", "--method", "node-ipc"],
+          "filetypes": ["sql", "mysql"]
+        },
     },
     "python.jediEnabled": false
 }

@@ -4,7 +4,7 @@ vim.api.nvim_set_keymap('n', 'XX', '<CMD>w<CR>', { noremap = true, silent = true
 vim.api.nvim_set_keymap('n', 'ZX', '<CMD>e .<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('t', '<C-[>', '<C-\\><C-n>', { noremap = true })
 
-vim.api.nvim_set_keymap('n', '<C-b>', '<CMD>bn<CR>', { noremap = true })
+-- vim.api.nvim_set_keymap('n', '<C-b>', '<CMD>bn<CR>', { noremap = true })
 
 vim.api.nvim_set_keymap('n', '<C-s>', [[:lua ToggleLastStatus()<CR>]], { noremap = true, silent = true })
 
