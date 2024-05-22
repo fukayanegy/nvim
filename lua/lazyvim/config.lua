@@ -160,7 +160,7 @@ require('lazy').setup({
     },
     { 'echasnovski/mini.nvim', version = '*' },
     { 'echasnovski/mini.ai', version = '*' },
-    { 'echasnovski/mini.comment', version = '*' },
+    -- { 'echasnovski/mini.comment', version = '*' },
     { 'echasnovski/mini.pairs', version = '*' },
     {
         "folke/noice.nvim",
@@ -195,5 +195,13 @@ require('lazy').setup({
                 mail = "etakaham@student.42tokyo.jp", -- your mail
             })
         end
+    },
+    {'nvim-treesitter/nvim-treesitter', version = '*'},
+    {
+        'numToStr/Comment.nvim',
+        opts = {
+            -- add any options here
+        },
+        lazy = false,
     },
 })

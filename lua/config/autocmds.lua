@@ -13,7 +13,7 @@ vim.cmd("set inccommand=split")         --
 vim.cmd("set showtabline=0")
 vim.cmd("syntax on")                    --
 vim.cmd("filetype on")                  --
-vim.cmd("set list listchars=tab:»-")
+vim.cmd("set list listchars=tab:»-,space:·")
 vim.cmd("set colorcolumn=80")
 
 ------------------------------INDENT SETTING------------------------------
@@ -29,6 +29,7 @@ vim.cmd("set softtabstop=0")            --
 vim.cmd("filetype plugin on")           --
 vim.cmd("filetype indent on")           --
 vim.cmd("autocmd FileType c           setlocal sw=4 sts=4 ts=4 noet")
+vim.cmd("autocmd FileType cpp         setlocal sw=4 sts=4 ts=4 noet")
 vim.cmd("autocmd FileType html        setlocal sw=4 sts=4 ts=4 et")
 vim.cmd("autocmd FileType ruby        setlocal sw=2 sts=2 ts=2 et")
 vim.cmd("autocmd FileType js          setlocal sw=4 sts=4 ts=4 et")
