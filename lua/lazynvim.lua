@@ -61,10 +61,6 @@ require("lazy").setup({
         dependencies = { 'nvim-lua/plenary.nvim' }
     },
     {
-        "hrsh7th/nvim-cmp",
-        dependencies = { "hrsh7th/cmp-emoji" },
-    },
-    {
         "lukas-reineke/indent-blankline.nvim",
         main = "ibl",
         opts = {}
@@ -93,5 +89,13 @@ require("lazy").setup({
         "williamboman/mason.nvim",
         "williamboman/mason-lspconfig.nvim",
         "neovim/nvim-lspconfig",
+    },
+    {
+        "neovim/nvim-lspconfig",
+        "hrsh7th/cmp-nvim-lsp",
+        "hrsh7th/cmp-buffer",
+        "hrsh7th/cmp-path",
+        "hrsh7th/cmp-cmdline",
+        "hrsh7th/nvim-cmp",
     }
 })
