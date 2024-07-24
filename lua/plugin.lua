@@ -10,5 +10,7 @@ require "plugins.nvim-treesitter"
 require 'plugins.dashboard-nvim'
 require 'plugins.telescope'
 require 'plugins.indent-blankline'
+require 'plugins.lspconfig'
+require 'plugins.mason'
 require 'plugins.nvim-autopairs'
 require 'plugins.noice'
