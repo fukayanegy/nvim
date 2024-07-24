@@ -24,14 +24,7 @@ require("lazy").setup({
     {
         "folke/flash.nvim",
         event = "VeryLazy",
-        opts = {
-            search = {
-                forward = true,
-                multi_window = true,
-                wrap = true,
-                incremental = true,
-            },
-        },
+        opts = {},
         keys = {
             { "s", mode = { "n", "x", "o" }, function() require("flash").jump() end, desc = "Flash" },
             { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
