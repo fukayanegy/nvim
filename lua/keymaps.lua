@@ -6,7 +6,8 @@ vim.api.nvim_set_keymap('t', '<C-[>', '<C-\\><C-n>', { noremap = true })
 
 vim.api.nvim_set_keymap('n', '<C-b>', '<CMD>bn<CR>', { noremap = true })
 
-vim.api.nvim_set_keymap('n', '<C-s>', [[:lua ToggleLastStatus()<CR>]], { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<C-s>', require('substitute').operator, { noremap = true, silent = true })
+-- vim.api.nvim_set_keymap('n', '<C-s>', [[:lua ToggleLastStatus()<CR>]], { noremap = true, silent = true })
 
 function ToggleLastStatus()
     if vim.o.laststatus == 0 then

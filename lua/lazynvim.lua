@@ -5,9 +5,7 @@ require("lazy").setup({
             dependencies = { 'nvim-tree/nvim-web-devicons' }
         },
         {
-            "catppuccin/nvim",
-            name = "catppuccin",
-            priority = 1000 
+            "shrik3/tokyonight.nvim",
         },
     },
     {
@@ -90,5 +88,8 @@ require("lazy").setup({
         "hrsh7th/cmp-path",
         "hrsh7th/cmp-cmdline",
         "hrsh7th/nvim-cmp",
-    }
+    },
+    {
+        "gbprod/substitute.nvim",
+    },
 })
