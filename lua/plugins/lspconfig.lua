@@ -23,3 +23,21 @@ lspconfig.pyright.setup{
         buf_set_keymap('n', 'gr', '<Cmd>lua vim.lsp.buf.references()<CR>', opts)
     end
 }
+
+
+
+-- `vim.diagnostic`の設定
+vim.diagnostic.config({
+  virtual_text = false,  -- エラーメッセージを行内に表示しない
+  signs = false,  -- エラーメッセージをサインカラムに表示
+  update_in_insert = false,  -- 挿入モード中に更新しない
+  severity_sort = true,  -- 深刻度でソート
+  float = {
+    source = "always",  -- 常にエラーメッセージのソースを表示
+  },
+})
+
+-- エラーメッセージを右側に表示するためのカスタムハンドラー
+vim.cmd [[
+  autocmd CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false, scope="cursor", border="single"})
+]]

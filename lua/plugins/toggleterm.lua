@@ -1,5 +1,5 @@
 require("toggleterm").setup{
-    size = 80,
+    size = 150,
     direction = 'float',
     name = 'terminal',
 }

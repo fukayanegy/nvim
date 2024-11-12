@@ -1,4 +1,5 @@
 require "plugins.colorscheme"
+require "plugins.nvim-cmp"
 require('lualine').setup()
 require "plugins.nvim-tree"
 require "plugins.bufferline"
