@@ -1,6 +1,6 @@
 require'nvim-treesitter.configs'.setup {
     -- パーサーの名前のリスト、または "all"（リストされたパーサーは必ずインストールされなければなりません）
-    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" },
+    ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "markdown", "markdown_inline" , "regex"},
 
     -- パーサーを同期的にインストールするかどうか（`ensure_installed`にのみ適用されます）
     sync_install = false,
